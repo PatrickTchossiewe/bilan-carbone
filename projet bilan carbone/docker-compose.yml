@@ -1,0 +1,19 @@
+version: '3'
+services:
+  backend:
+    build: ./backend # Chemin vers le Dockerfile du back-end
+    ports:
+      - "80:80" # Port pour le back-end
+    networks:
+      - mynetwork
+
+  frontend:
+    build: ./frontend # Chemin vers le Dockerfile du front-end
+    ports:
+      - "1234:1234" # Port pour le front-end
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
